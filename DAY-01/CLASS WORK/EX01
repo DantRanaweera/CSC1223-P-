@@ -68,4 +68,4 @@ MariaDB [uov]> SELECT * from students;
 4 rows in set (0.001 sec)
 
 
-CONCLUSION: Learn about how to create a database and how to insert data for it.
+CONCLUSION: Learnd about how to create a database and how to insert data for it.
