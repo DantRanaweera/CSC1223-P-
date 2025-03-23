@@ -1,1 +1,71 @@
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.036 sec)
 
+MariaDB [(none)]> create database UOV;
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| uov                |
++--------------------+
+6 rows in set (0.002 sec)
+
+MariaDB [(none)]> use uov;
+Database changed
+Create table students (STD_ID VARCHAR(15),NAME VARCHAR(30),COURSE VARCHAR(30),DOB Date,CITY VARCHAR(30));
+
+Query OK, 0 rows affected (0.031 sec)
+
+MariaDB [uov]> DESC students;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| STD_ID | varchar(15) | YES  |     | NULL    |       |
+| NAME   | varchar(30) | YES  |     | NULL    |       |
+| COURSE | varchar(30) | YES  |     | NULL    |       |
+| DOB    | date        | YES  |     | NULL    |       |
+| CITY   | varchar(30) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.038 sec)
+
+MariaDB [uov]> INSERT INTO students VALUES('2022/ASP/03','DANTHULA','AMC','2002-11-07','COLOMBO');
+Query OK, 1 row affected (0.056 sec)
+
+MariaDB [uov]> INSERT INTO students VALUES('2022/ASP/56','KALANA','AMC','2002-09-09','KANDY');
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [uov]> INSERT INTO students VALUES('2022/ASP/09','NISAL','AMC','2002-05-07','GALLE');
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [uov]> INSERT INTO students VALUES('2022/ASP/12','VISHWA','AMC','2001-12-05','KURUNEGALA');
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [uov]> SELECT * from students;
++-------------+----------+--------+------------+------------+
+| STD_ID      | NAME     | COURSE | DOB        | CITY       |
++-------------+----------+--------+------------+------------+
+| 2022/ASP/03 | DANTHULA | AMC    | 2002-11-07 | COLOMBO    |
+| 2022/ASP/56 | KALANA   | AMC    | 2002-09-09 | KANDY      |
+| 2022/ASP/09 | NISAL    | AMC    | 2002-05-07 | GALLE      |
+| 2022/ASP/12 | VISHWA   | AMC    | 2001-12-05 | KURUNEGALA |
++-------------+----------+--------+------------+------------+
+4 rows in set (0.001 sec)
+
+
+CONCLUSION: Learn about how to create a database and how to insert data for it.
