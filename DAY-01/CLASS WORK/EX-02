@@ -1,0 +1,48 @@
+MariaDB [(none)]> use uov;
+Database changed
+MariaDB [uov]> create table Physician(Physician_ID INT,Name VARCHAR(30),Position VARCHAR(30));
+Query OK, 0 rows affected (0.027 sec)
+
+MariaDB [uov]> DESC Physician;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| Physician_ID | int(11)     | YES  |     | NULL    |       |
+| Name         | varchar(30) | YES  |     | NULL    |       |
+| Position     | varchar(30) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+3 rows in set (0.044 sec)
+
+MariaDB [uov]> INSERT INTO Physician VALUES(1,'JHON DORIAN','STAFF INTERNIST');
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [uov]> INSERT INTO Physician VALUES(2,'ELLIOT REID','ATTENDING PHYSICIAN');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [uov]> INSERT INTO Physician VALUES(3,'CHRISTOPER TURK','SURGICAL ATTENDING PHYSICIAN');
+Query OK, 1 row affected (0.030 sec)
+
+MariaDB [uov]> INSERT INTO Physician VALUES(4,'PERCIAVAL COX','SENIOR ATTENDING PHYSICIAN');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [uov]> INSERT INTO Physician VALUES(5,'KEITH DUDEMESITER','MD RESIDENT');
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [uov]> INSERT INTO Physician VALUES(6,'MOLLY CLOCK','ATTENDING PHYSICIAN');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [uov]> select * from Physician;
++--------------+-------------------+------------------------------+
+| Physician_ID | Name              | Position                     |
++--------------+-------------------+------------------------------+
+|            1 | JHON DORIAN       | STAFF INTERNIST              |
+|            2 | ELLIOT REID       | ATTENDING PHYSICIAN          |
+|            3 | CHRISTOPER TURK   | SURGICAL ATTENDING PHYSICIAN |
+|            4 | PERCIAVAL COX     | SENIOR ATTENDING PHYSICIAN   |
+|            5 | KEITH DUDEMESITER | MD RESIDENT                  |
+|            6 | MOLLY CLOCK       | ATTENDING PHYSICIAN          |
++--------------+-------------------+------------------------------+
+6 rows in set (0.001 sec)
+
+
+CONCLUSION: Learnd how to create a table in database.
