@@ -1,0 +1,45 @@
+MariaDB [uov]> DROP TABLE Medication;
+Query OK, 0 rows affected (0.022 sec)
+
+MariaDB [uov]> select * from Medication;
+ERROR 1146 (42S02): Table 'uov.medication' doesn't exist
+
+
+
+------------------------------------------------------------------------------------------------------
+
+MariaDB [uov]> create database hi;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [uov]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| hi                 |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| uov                |
++--------------------+
+7 rows in set (0.001 sec)
+
+MariaDB [uov]> DROP DATABASE hi;
+Query OK, 0 rows affected (0.034 sec)
+
+MariaDB [uov]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| uov                |
++--------------------+
+6 rows in set (0.002 sec)
+
+
+CONCLUSION: Learnd about how to delete  tables and databases
