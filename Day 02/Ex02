@@ -1,0 +1,27 @@
+MariaDB [uov]> delete from Medication;
+Query OK, 4 rows affected (0.005 sec)
+
+MariaDB [uov]> select * from Medication;
+Empty set (0.001 sec)
+
+MariaDB [uov]> INSERT INTO Medication VALUES(2,'Thesisin','Foo Labs'),(3,'Awakin','Bar Laboratories'),(4,'Crescavitin','Baz Industries');
+Query OK, 3 rows affected (0.008 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [uov]> select * from Medication;
++------+-------------+------------------+
+| Code | Name        | Brand            |
++------+-------------+------------------+
+|    2 | Thesisin    | Foo Labs         |
+|    3 | Awakin      | Bar Laboratories |
+|    4 | Crescavitin | Baz Industries   |
++------+-------------+------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [uov]> TRUNCATE Medication;
+Query OK, 0 rows affected (0.039 sec)
+
+MariaDB [uov]> select * from Medication;
+Empty set (0.001 sec)
+
+CONCLUSION: Learnd about how to delete the atributes in database table
