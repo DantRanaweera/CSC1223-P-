@@ -1,0 +1,63 @@
+MariaDB [(none)]> use uov;
+Database changed
+MariaDB [uov]> create table patients(Patient_ID BIGINT(20) PRIMARY KEY,NAME VARCHAR(30),ADDRESS VARCHAR(30),PHONE VARCHAR(30));
+Query OK, 0 rows affected (0.019 sec)
+
+MariaDB [uov]> DESC patients;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| Patient_ID | bigint(20)  | NO   | PRI | NULL    |       |
+| NAME       | varchar(30) | YES  |     | NULL    |       |
+| ADDRESS    | varchar(30) | YES  |     | NULL    |       |
+| PHONE      | varchar(30) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.026 sec)
+
+MariaDB [uov]> INSERT INTO patients VALUES(100000001,'John Smith','42 Foobar Lane','555-0256'),(100000002,'Grace Ritchie','37 Snafu Drive','555-0512'),(100000003,'Todd Quinlan','101 Omgbbq Street','555-1204'),(100000004,'Dennis Doe','1100 Foobaz Avenue','555-2048');
+Query OK, 4 rows affected (0.056 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [uov]> select * from patients;
++------------+---------------+--------------------+----------+
+| Patient_ID | NAME          | ADDRESS            | PHONE    |
++------------+---------------+--------------------+----------+
+|  100000001 | John Smith    | 42 Foobar Lane     | 555-0256 |
+|  100000002 | Grace Ritchie | 37 Snafu Drive     | 555-0512 |
+|  100000003 | Todd Quinlan  | 101 Omgbbq Street  | 555-1204 |
+|  100000004 | Dennis Doe    | 1100 Foobaz Avenue | 555-2048 |
++------------+---------------+--------------------+----------+
+4 rows in set (0.001 sec)
+
+ MariaDB [uov]> create table Medication(Code INT(01) PRIMARY KEY,Name VARCHAR(30),Brand VARCHAR(30));
+ERROR 1050 (42S01): Table 'medication' already exists
+MariaDB [uov]> DESC Medication;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| Code  | int(1)      | NO   | PRI | NULL    |       |
+| Name  | varchar(30) | YES  |     | NULL    |       |
+| Brand | varchar(30) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.020 sec)
+
+MariaDB [uov]> INSERT INTO Medication VALUES(1,'Procrastin-X','X');
+Query OK, 1 row affected (0.033 sec)
+
+MariaDB [uov]> INSERT INTO Medication VALUES(2,'Thesisin','Foo Labs'),(3,'Awakin','Bar Laboratories'),(4,'Crescavitin','
+Baz Industries');
+Query OK, 3 rows affected (0.005 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [uov]> select * from Medication;
++------+--------------+------------------+
+| Code | Name         | Brand            |
++------+--------------+------------------+
+|    1 | Procrastin-X | X                |
+|    2 | Thesisin     | Foo Labs         |
+|    3 | Awakin       | Bar Laboratories |
+|    4 | Crescavitin  | Baz Industries   |
++------+--------------+------------------+
+4 rows in set (0.001 sec)
+
+CONCLUSION: Learnd about the PRIMARY KEYS 
