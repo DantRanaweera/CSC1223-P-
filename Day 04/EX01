@@ -102,3 +102,6 @@ MariaDB [uov]> select name from employees where city='NEW YORK' or city='CHICAGO
 | CHARLIE |
 | FRANK   |
 +---------+
+
+
+CONCLUSION: learnd about the practical use of 'DISTINCT','WHERE','BETWEEN','AND','OR' key words in database.
