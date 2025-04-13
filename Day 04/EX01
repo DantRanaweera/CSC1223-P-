@@ -1,0 +1,104 @@
+MariaDB [uov]> create table employees(EMP_ID INT(03) PRIMARY KEY ,NAME VARCHAR(30),AGE INT(02),DEPARTMENT VARCHAR(30),SALARY DOUBLE(10,2),CITY VARCHAR(30));
+Query OK, 0 rows affected (0.018 sec)
+
+MariaDB [uov]> DESC employees;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| EMP_ID     | int(3)       | NO   | PRI | NULL    |       |
+| NAME       | varchar(30)  | YES  |     | NULL    |       |
+| AGE        | int(2)       | YES  |     | NULL    |       |
+| DEPARTMENT | varchar(30)  | YES  |     | NULL    |       |
+| SALARY     | double(10,2) | YES  |     | NULL    |       |
+| CITY       | varchar(30)  | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+6 rows in set (0.024 sec)
+
+MariaDB [uov]> INSERT INTO employees VALUES(101,'ALICE',30,'HR',60000.00,'NEW YORK');
+Query OK, 1 row affected (0.040 sec)
+
+MariaDB [uov]> INSERT INTO employees VALUES(102,'BOB',30,'IT',75000.00,'LOS ANGELES');
+Query OK, 1 row affected (0.006 sec)
+
+MariaDB [uov]> INSERT INTO employees VALUES(103,'CHARLIE',35,'FINANCE',80000.00,'CHICAGO');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [uov]> INSERT INTO employees VALUES(104,'DAVID',40,'IT',90000.00,'SAN FRANCISCO');
+Query OK, 1 row affected (0.031 sec)
+
+MariaDB [uov]> INSERT INTO employees VALUES(105,'FRANK',27,'HR',50000.00,'CHICAGO');
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [uov]> SELECT * from employees;
++--------+---------+------+------------+----------+---------------+
+| EMP_ID | NAME    | AGE  | DEPARTMENT | SALARY   | CITY          |
++--------+---------+------+------------+----------+---------------+
+|    101 | ALICE   |   30 | HR         | 60000.00 | NEW YORK      |
+|    102 | BOB     |   30 | IT         | 75000.00 | LOS ANGELES   |
+|    103 | CHARLIE |   35 | FINANCE    | 80000.00 | CHICAGO       |
+|    104 | DAVID   |   40 | IT         | 90000.00 | SAN FRANCISCO |
+|    105 | FRANK   |   27 | HR         | 50000.00 | CHICAGO       |
++--------+---------+------+------------+----------+---------------+
+5 rows in set (0.001 sec)
+
+//Get names and thier salary from the table
+MariaDB [uov]> select name,salary from employees;
++---------+----------+
+| name    | salary   |
++---------+----------+
+| ALICE   | 60000.00 |
+| BOB     | 75000.00 |
+| CHARLIE | 80000.00 |
+| DAVID   | 90000.00 |
+| FRANK   | 50000.00 |
++---------+----------+
+
+//Get the department names without duplicates
+MariaDB [uov]> select DISTINCT department from employees;
++------------+
+| department |
++------------+
+| HR         |
+| IT         |
+| FINANCE    |
++------------+
+
+//Get the names of the employees who work in the It department
+MariaDB [uov]> select name from employees WHERE department='IT';
++-------+
+| name  |
++-------+
+| BOB   |
+| DAVID |
++-------+
+
+//Get the names of the employees whoes salary is greater than 70 000
+MariaDB [uov]> select name from employees WHERE salary>70000;
++---------+
+| name    |
++---------+
+| BOB     |
+| CHARLIE |
+| DAVID   |
++---------+
+
+//Get the employes whoes age is between 30 and 40
+MariaDB [uov]> select name from employees where age between 30 and 40;
++---------+
+| name    |
++---------+
+| ALICE   |
+| BOB     |
+| CHARLIE |
+| DAVID   |
++---------+
+
+//Get the employee who lives in New York and Chicago
+MariaDB [uov]> select name from employees where city='NEW YORK' or city='CHICAGO';
++---------+
+| name    |
++---------+
+| ALICE   |
+| CHARLIE |
+| FRANK   |
++---------+
