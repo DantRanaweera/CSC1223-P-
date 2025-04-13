@@ -1,0 +1,192 @@
+MariaDB [(none)]> create database  RetailStore;
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [(none)]> use  RetailStore
+Database changed
+MariaDB [RetailStore]> use RetailStore;
+Database changed
+MariaDB [RetailStore]> create table products(PRODUCT_ID INT(01) PRIMARY KEY,NAME VARCHAR(30),CATEGORY VARCHAR(30),PRICE DOUBLE(10,2),STOCK_QUANTITY INT(20));
+Query OK, 0 rows affected (0.032 sec)
+
+MariaDB [RetailStore]> DESC PRODUCTS;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| PRODUCT_ID     | int(1)       | NO   | PRI | NULL    |       |
+| NAME           | varchar(30)  | YES  |     | NULL    |       |
+| CATEGORY       | varchar(30)  | YES  |     | NULL    |       |
+| PRICE          | double(10,2) | YES  |     | NULL    |       |
+| STOCK_QUANTITY | int(20)      | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+5 rows in set (0.024 sec)
+
+MariaDB [RetailStore]> INSERT INTO PRODUCTS VALUES(1,'ULTRA HD TELEVISION','ELECTRONICS',1200,30);
+Query OK, 1 row affected (0.010 sec)
+
+MariaDB [RetailStore]> INSERT INTO PRODUCTS VALUES(2,'RUNNING SHOES','FOOTWEAR',100,50);
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [RetailStore]> INSERT INTO PRODUCTS VALUES(3,'ELECTRIC KETTLE','APPLIANCES',45,25);
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [RetailStore]> INSERT INTO PRODUCTS VALUES(4,'DENIM JEANS','CLOTHING',60,40);
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [RetailStore]> INSERT INTO PRODUCTS VALUES(5,'BLUETOOTH HEADPHONES','ELECTRONICS',150,15);
+Query OK, 1 row affected (0.031 sec)
+
+MariaDB [RetailStore]> select * from products;
++------------+----------------------+-------------+---------+----------------+
+| PRODUCT_ID | NAME                 | CATEGORY    | PRICE   | STOCK_QUANTITY |
++------------+----------------------+-------------+---------+----------------+
+|          1 | ULTRA HD TELEVISION  | ELECTRONICS | 1200.00 |             30 |
+|          2 | RUNNING SHOES        | FOOTWEAR    |  100.00 |             50 |
+|          3 | ELECTRIC KETTLE      | APPLIANCES  |   45.00 |             25 |
+|          4 | DENIM JEANS          | CLOTHING    |   60.00 |             40 |
+|          5 | BLUETOOTH HEADPHONES | ELECTRONICS |  150.00 |             15 |
++------------+----------------------+-------------+---------+----------------+
+5 rows in set (0.001 sec)
+
+MariaDB [RetailStore]> create table customers(CUSTOMER_ID INT(01) PRIMARY KEY,FULL_NAME VARCHAR(30),REG_DATE DATE,PHONE_NUMBER VARCHAR(30));
+Query OK, 0 rows affected (0.025 sec)
+
+MariaDB [RetailStore]> INSERT INTO CUSTOMERS VALUES(1,'ALICE JHONSON','2021-03-15','+1234567890');
+Query OK, 1 row affected (0.011 sec)
+
+MariaDB [RetailStore]> INSERT INTO CUSTOMERS VALUES(2,'BOB SMITH','2020-08-24','+0987654321');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [RetailStore]> INSERT INTO CUSTOMERS VALUES(3,'CAROL BROWN','2022-01-10','+1122334455');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [RetailStore]> INSERT INTO CUSTOMERS VALUES(4,'DAVE WILSON','2021-07-02','+2233445566');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [RetailStore]> INSERT INTO CUSTOMERS VALUES(5,'EVE DAVIS','2020-11-29','+3344556677');
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [RetailStore]> select * from customers;
++-------------+---------------+------------+--------------+
+| CUSTOMER_ID | FULL_NAME     | REG_DATE   | PHONE_NUMBER |
++-------------+---------------+------------+--------------+
+|           1 | ALICE JHONSON | 2021-03-15 | +1234567890  |
+|           2 | BOB SMITH     | 2020-08-24 | +0987654321  |
+|           3 | CAROL BROWN   | 2022-01-10 | +1122334455  |
+|           4 | DAVE WILSON   | 2021-07-02 | +2233445566  |
+|           5 | EVE DAVIS     | 2020-11-29 | +3344556677  |
++-------------+---------------+------------+--------------+
+MariaDB [RetailStore]> create table sales(SALE_ID INT(01) PRIMARY KEY,PRODUCT_ID INT(01),CUSTOMER_ID INT(01),SALE_DATE DATE,QUANTITY_SOLD INT(10));
+Query OK, 0 rows affected (0.024 sec)
+
+MariaDB [RetailStore]> INSERT INTO SALES VALUES(1,1,1,'2023-06-15',1),(2,2,2,'2023-06-18',2),(3,3,3,'2023-06-20',2),(4,4,4,'2023-05-25',3),(5,5,5,'2023-06-30',2);
+Query OK, 5 rows affected (0.017 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [RetailStore]> select * from sales;
++---------+------------+-------------+------------+---------------+
+| SALE_ID | PRODUCT_ID | CUSTOMER_ID | SALE_DATE  | QUANTITY_SOLD |
++---------+------------+-------------+------------+---------------+
+|       1 |          1 |           1 | 2023-06-15 |             1 |
+|       2 |          2 |           2 | 2023-06-18 |             2 |
+|       3 |          3 |           3 | 2023-06-20 |             2 |
+|       4 |          4 |           4 | 2023-05-25 |             3 |
+|       5 |          5 |           5 | 2023-06-30 |             2 |
++---------+------------+-------------+------------+---------------+
+
+// Select name from the table Products
+MariaDB [RetailStore]> select name from products;
++----------------------+
+| name                 |
++----------------------+
+| ULTRA HD TELEVISION  |
+| RUNNING SHOES        |
+| ELECTRIC KETTLE      |
+| DENIM JEANS          |
+| BLUETOOTH HEADPHONES |
++----------------------+
+
+//Select CustomerID and RegistrationDate from the table Customer
+MariaDB [RetailStore]> select customer_id,reg_date from customers;
++-------------+------------+
+| customer_id | reg_date   |
++-------------+------------+
+|           1 | 2021-03-15 |
+|           2 | 2020-08-24 |
+|           3 | 2022-01-10 |
+|           4 | 2021-07-02 |
+|           5 | 2020-11-29 |
++-------------+------------+
+
+//Select SaleID and SaleDate if QuantitySold is 2 from the table sales
+MariaDB [RetailStore]> select sale_id,sale_date from sales where quantity_sold=2;
++---------+------------+
+| sale_id | sale_date  |
++---------+------------+
+|       2 | 2023-06-18 |
+|       3 | 2023-06-20 |
+|       5 | 2023-06-30 |
++---------+------------+
+
+
+//Find the product names that sell the price greater than 100 MariaDB [RetailStore]> select name from products where price>100;
++----------------------+
+| name                 |
++----------------------+
+| ULTRA HD TELEVISION  |
+| BLUETOOTH HEADPHONES |
++----------------------+
+
+//Find the customerID whose registration date is before 2021
+MariaDB [RetailStore]> select customer_id from customers where reg_date<'2021-01-01';
++-------------+
+| customer_id |
++-------------+
+|           2 |
+|           5 |
++-------------+
+
+//Find unique categories from the product table
+MariaDB [RetailStore]> select distinct category from products;
++-------------+
+| category    |
++-------------+
+| ELECTRONICS |
+| FOOTWEAR    |
+| APPLIANCES  |
+| CLOTHING    |
++-------------+
+
+
+//Update the price of Electric Kettle to 145 in the product table
+MariaDB [RetailStore]> UPDATE products SET price=145 WHERE name='ELECTRIC KETTLE';
+Query OK, 1 row affected (0.008 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [RetailStore]> select * from products;
++------------+----------------------+-------------+---------+----------------+
+| PRODUCT_ID | NAME                 | CATEGORY    | PRICE   | STOCK_QUANTITY |
++------------+----------------------+-------------+---------+----------------+
+|          1 | ULTRA HD TELEVISION  | ELECTRONICS | 1200.00 |             30 |
+|          2 | RUNNING SHOES        | FOOTWEAR    |  100.00 |             50 |
+|          3 | ELECTRIC KETTLE      | APPLIANCES  |  145.00 |             25 |
+|          4 | DENIM JEANS          | CLOTHING    |   60.00 |             40 |
+|          5 | BLUETOOTH HEADPHONES | ELECTRONICS |  150.00 |             15 |
++------------+----------------------+-------------+---------+----------------+
+
+//Delete the data from the table customer, who has the customerID 3
+MariaDB [RetailStore]> DELETE from customers WHERE customer_id=3;
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [RetailStore]> select * from customers;
++-------------+---------------+------------+--------------+
+| CUSTOMER_ID | FULL_NAME     | REG_DATE   | PHONE_NUMBER |
++-------------+---------------+------------+--------------+
+|           1 | ALICE JHONSON | 2021-03-15 | +1234567890  |
+|           2 | BOB SMITH     | 2020-08-24 | +0987654321  |
+|           4 | DAVE WILSON   | 2021-07-02 | +2233445566  |
+|           5 | EVE DAVIS     | 2020-11-29 | +3344556677  |
++-------------+---------------+------------+--------------+
+
+
+
+CONCLUSION: learnd about how to update the table and delete some selected data from the table permanently .
