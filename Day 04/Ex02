@@ -1,8 +1,6 @@
 MariaDB [(none)]> create database  RetailStore;
 Query OK, 1 row affected (0.003 sec)
 
-MariaDB [(none)]> use  RetailStore
-Database changed
 MariaDB [RetailStore]> use RetailStore;
 Database changed
 MariaDB [RetailStore]> create table products(PRODUCT_ID INT(01) PRIMARY KEY,NAME VARCHAR(30),CATEGORY VARCHAR(30),PRICE DOUBLE(10,2),STOCK_QUANTITY INT(20));
